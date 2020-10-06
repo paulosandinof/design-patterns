@@ -12,20 +12,14 @@ Handle/Body
 
 When an abstraction can have one of several possible implementations, the usual way to accomodate them is to use inheritance. An abstract class defines the interface to the abstraction, and concrete subclasses implement it in different ways. But this approach isn't always flexible enough. Inheritance binds an implementation to the abstraction permanently, which makes it difficult to modify, extend, and reuse abstractions and implementations independently.
 
-**This basically means that this pattern was created to be used instead of inheritance in cases where you have different implementations for an specific class. Using inheritance, you would define a abstract class (an abstraction), and define a behavior for it creating a new class inheriting the abstraction (an implementor), with this, the implementation of the abstraction is permanently bound to a implementor. If you want to change the behavior of an abstraction, for example, you would need to create new implementor objects for it. Using this pattern, we can have different abstractions that can be combined with different implementors**
-
 ## Aplicability
 
 Use the Bridge pattern when
 
 - you want to avoid a permanent binding between an abstraction and its implementation. This might be the case, for example, when the implementation must be selected or switched at run-time.
 
-    **Using inheritance, the actual behavior of an abstraction would be defined by a subclass, so when using it, you would need to use an instance of this subclass directly on your code. Using this pattern you can use just the the abstraction in your code, defining which implementation should be used in the constructor of your abstraction for example, so you client code would only depend of your abstraction. This part gets a little bit confusing when the author says "when the implementation must be selected or switched at run-time", because in my vision, you can select or switch implementations at run-time using inheritance too, the downside would be that your client code would need to depend of all implementation classes that could be used (that could be many), and when using a bridge you can also make your code dependent of all implementors (will be less classes than with inheritance), but you can also make it dependent of only the abstraction, making the abstraction responsible for defining its correct implementor**
-
 - both the abstractions and their implementations should be extensible by
 subclassing. In this case, the Bridge pattern lets you combine the different abstractions and implementations and extend them independently.
-
-    **This is one of the main purposes of this pattern**
 
 - changes in the implementation of an abstraction should have no impact on clients; that is, their code should not have to be recompiled.
 
